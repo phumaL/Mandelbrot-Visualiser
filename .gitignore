@@ -1,0 +1,5 @@
+# build artifacts
+dist-newstyle/
+
+# project outputs
+out/

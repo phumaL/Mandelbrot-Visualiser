@@ -1,0 +1,42 @@
+cabal-version: 2.4
+
+name:           mandelbrot
+version:        0.1.0.0
+synopsis:       Mandelbrot and Julia set renderer with GTK GUI
+author:         Lwazi Phuma
+license:        MIT
+build-type:     Simple
+
+library
+  hs-source-dirs:   src
+  exposed-modules:
+      Fractal
+    , Grid
+    , Colour
+    , Image
+    , GUI
+  build-depends:
+      base              >= 4.14
+    , gi-gtk            >= 3.0  && < 4
+    , gi-gdk            >= 3.0  && < 4
+    , gi-cairo          >= 0.1
+    , gi-cairo-render   >= 0.1
+    , gi-cairo-connector >= 0.1
+    , gi-gdkpixbuf      >= 2.0
+    , gi-glib           >= 2.0
+    , bytestring        >= 0.10
+    , parallel          >= 3.2
+    , deepseq           >= 1.4
+    , data-default
+    , text
+  ghc-options:      -Wall -Wcompat -O2
+  default-language: Haskell2010
+
+executable mandelbrot
+  hs-source-dirs:   app
+  main-is:          Main.hs
+  build-depends:
+      base       >= 4.14
+    , mandelbrot
+  ghc-options:      -Wall -Wcompat -O2 -threaded
+  default-language: Haskell2010
